@@ -92,6 +92,7 @@ static rt_size_t _hmc5883_polling_get_data(rt_sensor_t sensor, struct rt_sensor_
 {
     struct hmc5883_3axes mag_data;
     hmc5883_set_param(mag_dev, HMC5883_MAG_OPER_MODE, HMC5883_SINGLE_MEAS);
+    rt_thread_mdelay(7);
     if (hmc5883_get_mag_raw(mag_dev, &mag_data) != RT_EOK)
     {
         return 0;
